@@ -5,11 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.example.finapp.BD.FinAppDAO;
+import com.example.finapp.Model.Financa;
 
 public class CadastroOperacoes extends AppCompatActivity {
 
@@ -21,9 +25,6 @@ public class CadastroOperacoes extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.getSupportActionBar().hide();
-
-
-
 
         // Carregar dados que serão preenchidos no spinner de categoria de operação.
         // Credito
@@ -70,10 +71,33 @@ public class CadastroOperacoes extends AppCompatActivity {
             toast.show();
             return;
         }
+    }
 
+    public void salvar(View view){
+        RadioGroup radioGroup = findViewById(R.id.tipoOperacaoRadioGroup);
+        Spinner categoriaOperacaoSpinner = findViewById(R.id.spinnerClassificacoes);
+        EditText editTextValor = findViewById(R.id.editTextValor);
+        EditText data = findViewById(R.id.dataOperacaoEdit);
+        String dataString = editTextValor.getText().toString();
+        String valorOperacaoString = editTextValor.getText().toString();
+        int radioSelectedID = radioGroup.getCheckedRadioButtonId();
 
+            // Finalmente, os dados são recebidos em seus formatos apropriados.
+            RadioButton tipoOperacaoRadio = (RadioButton)(findViewById(radioSelectedID));
+            String tipoOperacaoString = (String) tipoOperacaoRadio.getText();
+            String categoriaOperacaoString = (String) categoriaOperacaoSpinner.getSelectedItem().toString();
+            Float valorOperacaoFloat = Float.valueOf(valorOperacaoString);
+
+            Financa financa = new Financa(tipoOperacaoString, categoriaOperacaoString, dataString, valorOperacaoFloat);
+
+            FinAppDAO db = new FinAppDAO(this);
+            db.insereFinanca(financa);
+
+            // Operacao criada com sucesso.
+            Toast toast = Toast.makeText(getApplicationContext(), "Operação criada com sucesso!.", Toast.LENGTH_SHORT);
+            toast.show();
+            finish();
+        }
     }
 
 
-
-    }

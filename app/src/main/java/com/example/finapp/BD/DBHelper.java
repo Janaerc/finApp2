@@ -20,6 +20,15 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
         String CREATE_SQL= "CREATE TABLE IF NOT EXISTS "  + TABLE1_NAME + "("
+                + "idFinanca INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + "operacao Text,"
+                + "classificacao Text,"
+                + "data TEXT,"
+                + "valor REAL"
+                + ")";
+
+        /*
+        String CREATE_SQL= "CREATE TABLE IF NOT EXISTS "  + TABLE1_NAME + "("
                 + "idFinanca INTEGER PRIMARY KEY,"
                 + "idOperacao INTEGER,"
                 + "idClassificacao INTEGER,"
@@ -28,6 +37,8 @@ public class DBHelper extends SQLiteOpenHelper {
                 + "FOREIGN KEY (idOperacao) REFERENCES operacao(idOperacao),"
                 + "FOREIGN KEY (idClassificacao) REFERENCES classificao(idClassificacao)"
                 + ")";
+
+         */
 
 
         try {
@@ -109,6 +120,8 @@ public class DBHelper extends SQLiteOpenHelper {
         }
 
     }
+
+
 }
 
 

@@ -1,28 +1,15 @@
 package com.example.finapp.Model;
 
-import java.io.Serializable;
-import java.time.LocalDate;
-
-public class Financa implements Serializable {
-    private int id;
+public class Classificacao {
     private String operacao;
     private String classificacao;
-    private float valor;
-    private String data;
+    private Float valor;
 
-    public Financa(String operacao, String classificacao, String data, float valor) {
+
+    public Classificacao(String operacao, String classificacao, Float valor) {
         this.operacao = operacao;
         this.classificacao = classificacao;
         this.valor = valor;
-        this.data = data;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getOperacao() {
@@ -41,19 +28,12 @@ public class Financa implements Serializable {
         this.classificacao = classificacao;
     }
 
-    public float getValor() {
+    public Float getValor() {
         return valor;
     }
 
-    public void setValor(float valor) {
+    public void setValor(Float valor) {
         this.valor = valor;
     }
 
-    public String getData() {
-        return data;
-    }
-
-    public void setData(String data) {
-        this.data = data;
-    }
 }
