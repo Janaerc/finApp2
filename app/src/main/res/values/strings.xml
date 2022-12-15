@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">finApp</string>
+
+   <string-array name="categoria_debito">
+       <item>Moradia</item>
+       <item>Saúde</item>
+       <item>Outros</item>
+   </string-array>
+    <string-array name="categoria_credito">
+        <item>Salário</item>
+        <item>Outros</item>
+    </string-array>
+    <string-array name="pesquisa_filtro">
+        <item>Ambos</item>
+        <item>Débito</item>
+        <item>Crédito</item>
+    </string-array>
+
 </resources>
+
