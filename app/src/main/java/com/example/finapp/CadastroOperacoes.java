@@ -58,7 +58,7 @@ public class CadastroOperacoes extends AppCompatActivity {
         Spinner categoriaOperacaoSpinner = findViewById(R.id.spinnerClassificacoes);
         EditText editTextValor = findViewById(R.id.editTextValor);
         EditText data = findViewById(R.id.dataOperacaoEdit);
-        String dataString = editTextValor.getText().toString();
+        String dataString = data.getText().toString();
         String valorOperacaoString = editTextValor.getText().toString();
         int radioSelectedID = radioGroup.getCheckedRadioButtonId();
 

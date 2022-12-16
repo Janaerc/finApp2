@@ -12,6 +12,9 @@ public class Classificacao {
         this.valor = valor;
     }
 
+    public Classificacao() {
+    }
+
     public String getOperacao() {
         return operacao;
     }

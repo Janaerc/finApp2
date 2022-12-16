@@ -43,7 +43,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         try {
             sqLiteDatabase.execSQL(CREATE_SQL);
-            Log.i("INFO DB", "Tabela criada.");
+            Log.i("INFO DB", "Tabela criada1.");
         } catch (Exception e) {
             Log.i("INFO DB", "Erro ao criar tabela." + e.getMessage());
         }
@@ -57,7 +57,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         try {
             sqLiteDatabase.execSQL(CREATE_SQL);
-            Log.i("INFO DB", "Tabela criada.");
+            Log.i("INFO DB", "Tabela criada2.");
         } catch (Exception e) {
             Log.i("INFO DB", "Erro ao criar tabela." + e.getMessage());
         }
@@ -73,7 +73,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         try {
             sqLiteDatabase.execSQL(CREATE_SQL);
-            Log.i("INFO DB", "Tabela criada.");
+            Log.i("INFO DB", "Tabela criada3.");
         } catch (Exception e) {
             Log.i("INFO DB", "Erro ao criar tabela." + e.getMessage());
         }

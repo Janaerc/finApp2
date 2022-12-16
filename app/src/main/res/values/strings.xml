@@ -8,7 +8,7 @@
    </string-array>
     <string-array name="categoria_credito">
         <item>Salário</item>
-        <item>Outros</item>
+        <item>Adicionais</item>
     </string-array>
     <string-array name="pesquisa_filtro">
         <item>Ambos</item>

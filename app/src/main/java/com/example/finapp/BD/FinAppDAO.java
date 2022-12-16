@@ -25,6 +25,7 @@ public class FinAppDAO{
     }
 
     public boolean insereFinanca(Financa financa) {
+        Log.i("INFO", "entrou no insere financa da dao. ");
         ContentValues values = new ContentValues();
         values.put("operacao", financa.getOperacao());
         values.put("classificacao", financa.getClassificacao());
@@ -32,7 +33,8 @@ public class FinAppDAO{
         values.put("valor", financa.getValor());
         try {
             write.insert(DBHelper.TABLE1_NAME, null, values);
-            Log.i("INFO", "Operação salva com sucesso. ");
+            Log.i("INFO", "rafa " + financa.getOperacao() + "" + financa.getValor());
+            Log.i("INFO", "rafa " + financa.getClassificacao() + "" + financa.getData());
         } catch (Exception e) {
             Log.e("INFO", "Erro ao salvar operação. " + e.getMessage());
             return false;
@@ -41,25 +43,17 @@ public class FinAppDAO{
     }
 
     public List<Classificacao> getClassificacao() {
-        SQLiteDatabase db = this.write;
+        SQLiteDatabase db = this.read;
         String query;
-        query = "SELECT " +
-                "       operacao," +
-                "       classificacao," +
-                "       SUM(valor) " +
-                "FROM financa " +
-                "GROUP BY classificacao " +
-                "ORDER BY operacao DESC ";
+        query = "SELECT operacao, classificacao, SUM(valor) FROM financa GROUP BY classificacao ORDER BY operacao DESC";
 
-        Cursor c = db.rawQuery(query, null);
+        Cursor c = read.rawQuery(query, null);
         List<Classificacao> list = new ArrayList<>();
         while (c.moveToNext()) {
-            String operacaoString = String.valueOf(c.getColumnIndex("operacao"));
-            //String operacaoString = c.getString(c.getColumnIndex("operacao"));
-            String classificacaoString = String.valueOf((c.getColumnIndex("classificacao")));
-            float valorString = c.getColumnIndex("valor");
-
-            Classificacao categoria = new Classificacao(operacaoString, classificacaoString, valorString);
+            float valor = c.getFloat(2);
+            String operacaoString = c.getString(0);
+            String classificacaoString = c.getString(1);
+            Classificacao categoria = new Classificacao(operacaoString, classificacaoString, valor);
             list.add(categoria);
         }
         return list;
