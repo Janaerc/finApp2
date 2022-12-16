@@ -29,9 +29,9 @@ public class ListaClassificada extends AppCompatActivity {
             // Se o valor for positivo, colocar um '+' na frente
             String valorString;
             if (c.getOperacao().equals("Crédito"))
-                valorString = "+" + String.valueOf(c.getValor());
+                valorString = "+" + c.getValor();
             else
-                valorString = "-" + String.valueOf(c.getValor());
+                valorString = "-" + c.getValor();
 
             TextView tv = new TextView(this);
             tv.setText("" + c.getClassificacao() + "\n" + c.getOperacao() + "\nTotal : " + valorString);
