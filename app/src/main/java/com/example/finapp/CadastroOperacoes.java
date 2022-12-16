@@ -51,29 +51,9 @@ public class CadastroOperacoes extends AppCompatActivity {
         categoriaSpinner.setAdapter(this.creditoAdapter);
     }
 
-    public void onCriarOperacao(View view) {
 
-        // Tipo de Operação Selecionada (RadioGroup)
-        RadioGroup radioGroup = findViewById(R.id.tipoOperacaoRadioGroup);
-        int radioSelectedID = radioGroup.getCheckedRadioButtonId();
 
-        // Caso não há um radio button selecionado
-        if (radioSelectedID == -1) {
-            Toast toast = Toast.makeText(getApplicationContext(), "Você deve escolher um tipo de operação.", Toast.LENGTH_SHORT);
-            toast.show();
-            return;
-        }
-
-        // Categoria da Operação
-        Spinner categoriaOperacaoSpinner = findViewById(R.id.spinnerClassificacoes);
-        if (categoriaOperacaoSpinner.getSelectedItem() == null) {
-            Toast toast = Toast.makeText(getApplicationContext(), "Você deve escolher uma categoria de operação.", Toast.LENGTH_SHORT);
-            toast.show();
-            return;
-        }
-    }
-
-    public void salvar(View view){
+    public void salvarOperacao(View view){
         RadioGroup radioGroup = findViewById(R.id.tipoOperacaoRadioGroup);
         Spinner categoriaOperacaoSpinner = findViewById(R.id.spinnerClassificacoes);
         EditText editTextValor = findViewById(R.id.editTextValor);
