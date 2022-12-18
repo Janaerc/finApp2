@@ -8,41 +8,14 @@
     android:backgroundTint="#E45405"
     tools:context=".Pesquisar">
 
-    <Button
-        android:id="@+id/buttonInicio"
-        android:layout_width="190dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="92dp"
-        android:backgroundTint="@color/white"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:onClick="calendarioFrom"
-        android:text="Button"
-        android:textColor="#888585"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/buttonFim"
-        android:layout_width="190dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="42dp"
-        android:backgroundTint="@color/white"
-        android:onClick="calendarioTo"
-        android:text="Button"
-        android:textColor="#605656"
-        app:layout_constraintStart_toStartOf="@+id/buttonInicio"
-        app:layout_constraintTop_toBottomOf="@+id/buttonInicio" />
-
     <Spinner
         android:id="@+id/spinnerOperacaoPesquisar"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="54dp"
+        android:layout_marginTop="308dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonFim" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buttonPesquisa"
@@ -61,10 +34,10 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="24dp"
         android:text="Data de inicio"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/buttonInicio"
+        app:layout_constraintBottom_toTopOf="@+id/inicialEdit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -72,11 +45,33 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="11dp"
+        android:layout_marginBottom="17dp"
         android:text="Data final"
         android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/DataFinEdit"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonInicio" />
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/inicialEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="20dp"
+        android:ems="10"
+        android:inputType="date"
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintStart_toStartOf="@+id/DataFinEdit" />
+
+    <EditText
+        android:id="@+id/DataFinEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="39dp"
+        android:layout_marginBottom="59dp"
+        android:ems="10"
+        android:inputType="date"
+        app:layout_constraintBottom_toTopOf="@+id/spinnerOperacaoPesquisar"
+        app:layout_constraintStart_toStartOf="@+id/spinnerOperacaoPesquisar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
