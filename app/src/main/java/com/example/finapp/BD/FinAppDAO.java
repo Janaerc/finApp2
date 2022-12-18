@@ -103,6 +103,23 @@ public class FinAppDAO{
         return list;
     }
 
+    public List<Financa> extrato() {
+        SQLiteDatabase db = this.read;
+        String query;
+        List<Financa> list = new ArrayList<>();
+        query = "SELECT classificacao, data, valor FROM financa limit 15";
+
+        Cursor c = read.rawQuery(query, null);
+        while (c.moveToNext()) {
+            String classificacaoString = c.getString(0);
+            String dataString = c.getString(1);
+            float valor = c.getFloat(2);
+            Financa financa = new Financa(null, classificacaoString, dataString,valor);
+            list.add(financa);
+        }
+        return list;
+    }
+
 
 
 /*
