@@ -143,53 +143,6 @@ public class FinAppDAO{
 
 
 
-/*
-    public float getSaldo() {
-        SQLiteDatabase db = this.write;
-        String query;
-        query = "SELECT " +
-                "    ( " +
-                "        SELECT sum(valor) " +
-                "        FROM operacao o " +
-                "        INNER JOIN tipo t ON o.id_tipo = t.id_tipo " +
-                "        WHERE t.nome = 'Crédito' " +
-                "    ) AS credito, " +
-                "    ( " +
-                "        SELECT sum(valor) " +
-                "        FROM operacao o " +
-                "        INNER JOIN tipo t ON o.id_tipo = t.id_tipo " +
-                "        WHERE t.nome = 'Débito' " +
-                "    ) AS debito";
-        Cursor c = db.rawQuery(query, null);
-        if (c.getCount() == 0 || !c.moveToFirst()) // Se não retornar resultado, então o saldo é 0.
-            return 0;
-        c.moveToFirst();
-        // c.moveToNext(); // Utilizar apenas uma vez, como possuimos só um valor
-        float credito = c.getFloat(c.getColumnIndex("credito"));
-        float debito = c.getFloat(c.getColumnIndex("debito"));
-        return credito-debito;
-    }
-
-
-}*/
-
-
-   /* public List<Financa> getAllFinanca() {
-        List<Financa> financaList = new ArrayList<>();
-        Cursor cursor = read.query(DBHelper.TABLE1_NAME, new String[]{"id", " nome", },
-                null, null, null, null, null );
-
-        while(cursor.moveToNext()) {
-            ToDo toDo = new ToDo();
-            Long id = cursor.getLong(cursor.getColumnIndex("id"));
-            String toDoName = cursor.getString(cursor.getColumnIndex("name"));
-            toDo.setId(id);
-            toDo.setToDoName(toDoName);
-            toDoList.add(toDo);
-        }
-        return toDoList;
-    }*/
-
 
 
 
