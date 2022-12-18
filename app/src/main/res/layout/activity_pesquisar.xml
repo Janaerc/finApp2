@@ -103,4 +103,23 @@
             android:textColor="#FFFFFF" />
     </RadioGroup>
 
+    <ScrollView
+        android:id="@+id/scrollViewPesquisar"
+        android:layout_width="match_parent"
+        android:layout_height="200sp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonPesquisa"
+        tools:layout_editor_absoluteX="0dp">
+
+        <LinearLayout
+            android:id="@+id/listaPesquisarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="200sp"
+            android:orientation="vertical">
+
+        </LinearLayout>
+    </ScrollView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

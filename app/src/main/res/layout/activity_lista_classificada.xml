@@ -21,13 +21,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
-        android:id="@+id/scrollViewListar"
+        android:id="@+id/scrollViewPesquisar"
         android:layout_width="match_parent"
         android:layout_height="650dp"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <LinearLayout
-            android:id="@+id/listaLinearLayout"
+            android:id="@+id/listaPesquisarLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">

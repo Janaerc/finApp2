@@ -22,7 +22,7 @@ public class ListaClassificada extends AppCompatActivity {
         this.getSupportActionBar().hide();
 
 
-        LinearLayout listaLinearLayout = findViewById(R.id.listaLinearLayout);
+        LinearLayout listaLinearLayout = findViewById(R.id.listaPesquisarLayout);
         FinAppDAO db = new FinAppDAO(this);
         List<Classificacao> lista = db.getClassificacao();
         for (Classificacao c : lista) {
