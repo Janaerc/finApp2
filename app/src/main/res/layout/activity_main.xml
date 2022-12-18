@@ -8,6 +8,72 @@
     android:backgroundTint="#0D214F"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/logoDashboard"
+        android:layout_width="match_parent"
+        android:layout_height="300sp"
+        android:layout_marginBottom="22dp"
+        app:layout_constraintBottom_toTopOf="@+id/apptext"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_launcher_foreground" />
+
+    <TextView
+        android:id="@+id/finText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:fontFamily="sans-serif-black"
+        android:includeFontPadding="true"
+        android:text="Fin"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+        android:textColor="#FFC200"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/apptext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="260dp"
+        android:shadowDx="10"
+        android:text="App"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#FFFFFF"
+        android:textStyle="italic"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="80dp" />
+
+    <Button
+        android:id="@+id/extratoButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="52dp"
+        android:backgroundTint="#FFFFFF"
+        android:elegantTextHeight="false"
+        android:fontFamily="monospace"
+        android:onClick="onClickExtrato"
+        android:shadowColor="#000000"
+        android:shadowDx="5"
+        android:shadowDy="5"
+        android:text="Extrato"
+        android:textColor="#0D214F"
+        android:textColorHighlight="#FFFFFF"
+        android:textColorHint="#000000"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:cornerRadius="5sp"
+        app:layout_constraintBottom_toTopOf="@+id/listaButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/operacaoButton"
+        app:layout_constraintTop_toTopOf="@+id/operacaoButton"
+        app:layout_constraintVertical_bias="0.0" />
+
     <Button
         android:id="@+id/operacaoButton"
         android:layout_width="0dp"
@@ -23,7 +89,7 @@
         android:shadowDy="5"
         android:text="Cadastro Operações"
         android:textAlignment="center"
-        android:textColor="#E45405"
+        android:textColor="#0D214F"
         android:textColorHighlight="#FFFFFF"
         android:textColorHint="#000000"
         android:textSize="12sp"
@@ -32,7 +98,32 @@
         app:layout_constraintBottom_toTopOf="@+id/pesquisarButton"
         app:layout_constraintEnd_toStartOf="@+id/extratoButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/FinTechText" />
+        app:layout_constraintTop_toBottomOf="@+id/apptext" />
+
+    <Button
+        android:id="@+id/listaButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="52dp"
+        android:backgroundTint="#FFFFFF"
+        android:elegantTextHeight="false"
+        android:fontFamily="monospace"
+        android:onClick="onClickLista"
+        android:shadowColor="#000000"
+        android:shadowDx="5"
+        android:shadowDy="5"
+        android:text="Lista Classificada"
+        android:textColor="#0D214F"
+        android:textColorHighlight="#FFFFFF"
+        android:textColorHint="#000000"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:cornerRadius="5sp"
+        app:layout_constraintBottom_toBottomOf="@+id/pesquisarButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/pesquisarButton"
+        app:layout_constraintTop_toBottomOf="@+id/operacaoButton"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/pesquisarButton"
@@ -49,7 +140,7 @@
         android:shadowDx="5"
         android:shadowDy="5"
         android:text="Pesquisar"
-        android:textColor="#E45405"
+        android:textColor="#0D214F"
         android:textColorHighlight="#FFFFFF"
         android:textColorHint="#000000"
         android:textSize="12sp"
@@ -59,82 +150,5 @@
         app:layout_constraintEnd_toStartOf="@+id/listaButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/operacaoButton" />
-
-    <Button
-        android:id="@+id/listaButton"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="52dp"
-        android:backgroundTint="#FFFFFF"
-        android:elegantTextHeight="false"
-        android:fontFamily="monospace"
-        android:onClick="onClickLista"
-        android:shadowColor="#000000"
-        android:shadowDx="5"
-        android:shadowDy="5"
-        android:text="Lista Classificada"
-        android:textColor="#E45405"
-        android:textColorHighlight="#FFFFFF"
-        android:textColorHint="#000000"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        app:cornerRadius="5sp"
-        app:layout_constraintBottom_toBottomOf="@+id/pesquisarButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/pesquisarButton"
-        app:layout_constraintTop_toBottomOf="@+id/operacaoButton"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/extratoButton"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="52dp"
-        android:backgroundTint="#FFFFFF"
-        android:elegantTextHeight="false"
-        android:fontFamily="monospace"
-        android:onClick="onClickExtrato"
-        android:shadowColor="#000000"
-        android:shadowDx="5"
-        android:shadowDy="5"
-        android:text="Extrato"
-        android:textColor="#E45405"
-        android:textColorHighlight="#FFFFFF"
-        android:textColorHint="#000000"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        app:cornerRadius="5sp"
-        app:layout_constraintBottom_toTopOf="@+id/listaButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/operacaoButton"
-        app:layout_constraintTop_toTopOf="@+id/operacaoButton"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <ImageView
-        android:id="@+id/logoDashboard"
-        android:layout_width="206dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="51dp"
-        android:layout_marginBottom="22dp"
-        app:layout_constraintBottom_toTopOf="@+id/FinTechText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_launcher_foreground" />
-
-    <TextView
-        android:id="@+id/FinTechText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="91dp"
-        android:fontFamily="sans-serif-medium"
-        android:text="FinApp"
-        android:textColor="#E45405"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/operacaoButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logoDashboard" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
