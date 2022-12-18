@@ -65,7 +65,7 @@ public class FinAppDAO{
         List<Financa> list = new ArrayList<>();
 
         if ("Débito".equals(tipoOperacaoString)){
-            query = "SELECT classificacao, data, valor FROM financa WHERE operacacao = debito AND data BETWEEN " + dataInicialString + " AND " + dataFinalString;
+            query = "SELECT classificacao, data, valor FROM financa WHERE operacacao LIKE 'débito' AND data BETWEEN " + dataInicialString + " AND " + dataFinalString;
 
             Cursor c = read.rawQuery(query, null);
             while (c.moveToNext()) {
@@ -77,7 +77,7 @@ public class FinAppDAO{
             }
         }
         if ("Crédito".equals(tipoOperacaoString)) {
-            query = "SELECT classificacao, data, valor FROM financa WHERE operacacao = credito AND data BETWEEN " + dataInicialString + " AND " + dataFinalString;
+            query = "SELECT classificacao, data, valor FROM financa WHERE operacacao LIKE 'crédito' AND data BETWEEN " + dataInicialString + " AND " + dataFinalString;
 
             Cursor c = read.rawQuery(query, null);
             while (c.moveToNext()) {
@@ -118,6 +118,25 @@ public class FinAppDAO{
             list.add(financa);
         }
         return list;
+    }
+
+    public float saldo() {
+        SQLiteDatabase db = this.read;
+        String query, query1;
+        float credito = 0, debito= 0;
+        query = "SELECT SUM(valor) from financa WHERE operacao LIKE 'débito'";
+        Cursor c = read.rawQuery(query, null);
+        while (c.moveToNext()) {
+            debito = c.getFloat(0);
+        }
+        query1 = "SELECT SUM(valor) from financa WHERE operacao LIKE 'crédito'";
+        c = read.rawQuery(query1, null);
+        while (c.moveToNext()) {
+             credito = c.getFloat(0);
+        }
+        Log.i("INFO", "rafa " +  debito);
+        Log.i("INFO", "rafa " + credito);
+        return (debito - credito);
     }
 
 

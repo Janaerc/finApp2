@@ -30,6 +30,11 @@ public class Extrato extends AppCompatActivity {
             tv.setTextSize(20f);
             listaLinearLayout.addView(tv);
         }
+        float saldo = db.saldo();
+        TextView saldoTx = findViewById(R.id.saldoText);
+        String saldoString = Float.toString(saldo);
+        saldoTx.setText(saldoString);
+
 
 
 
