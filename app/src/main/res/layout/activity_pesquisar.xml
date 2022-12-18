@@ -19,7 +19,7 @@
         android:text="Pesquisar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupOperacao" />
 
     <TextView
         android:id="@+id/textView"
@@ -68,12 +68,13 @@
         tools:layout_editor_absoluteY="204dp" />
 
     <RadioGroup
-        android:id="@+id/radioGroup"
+        android:id="@+id/radioGroupOperacao"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:foregroundGravity="center"
         android:gravity="center"
+        android:onClick="pesquisar"
         android:textAlignment="center"
         app:layout_constraintTop_toBottomOf="@+id/DataFinEdit"
         tools:layout_editor_absoluteX="158dp">

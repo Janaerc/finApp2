@@ -17,6 +17,9 @@ public class Financa implements Serializable {
         this.data = data;
     }
 
+    public Financa() {
+    }
+
     public int getId() {
         return id;
     }

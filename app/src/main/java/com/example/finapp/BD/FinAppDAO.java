@@ -58,6 +58,53 @@ public class FinAppDAO{
         }
         return list;
     }
+
+    public List<Financa> pesquisar(String dataInicialString, String dataFinalString, String tipoOperacaoString) {
+        SQLiteDatabase db = this.read;
+        String query;
+        List<Financa> list = new ArrayList<>();
+
+        if ("Débito".equals(tipoOperacaoString)){
+            query = "SELECT classificacao, data, valor FROM financa WHERE operacacao = debito AND data BETWEEN " + dataInicialString + " AND " + dataFinalString;
+
+            Cursor c = read.rawQuery(query, null);
+            while (c.moveToNext()) {
+                String classificacaoString = c.getString(0);
+                String dataString = c.getString(1);
+                float valor = c.getFloat(2);
+                Financa financa = new Financa(null, classificacaoString, dataString,valor);
+                list.add(financa);
+            }
+        }
+        if ("Crédito".equals(tipoOperacaoString)) {
+            query = "SELECT classificacao, data, valor FROM financa WHERE operacacao = credito AND data BETWEEN " + dataInicialString + " AND " + dataFinalString;
+
+            Cursor c = read.rawQuery(query, null);
+            while (c.moveToNext()) {
+                String classificacaoString = c.getString(0);
+                String dataString = c.getString(1);
+                float valor = c.getFloat(2);
+                Financa financa = new Financa(null, classificacaoString, dataString,valor);
+                list.add(financa);
+            }
+        }
+        else {
+            query = "SELECT classificacao, data, valor FROM financa WHERE data BETWEEN " + dataInicialString + " AND " + dataFinalString;
+
+            Cursor c = read.rawQuery(query, null);
+            while (c.moveToNext()) {
+                String classificacaoString = c.getString(0);
+                String dataString = c.getString(1);
+                float valor = c.getFloat(2);
+                Financa financa = new Financa(null, classificacaoString, dataString,valor);
+                list.add(financa);
+            }
+        }
+        return list;
+    }
+
+
+
 /*
     public float getSaldo() {
         SQLiteDatabase db = this.write;

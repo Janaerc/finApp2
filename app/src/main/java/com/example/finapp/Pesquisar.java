@@ -4,26 +4,41 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.text.InputType;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.finapp.BD.FinAppDAO;
+import com.example.finapp.Model.Financa;
+
+import org.w3c.dom.Text;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Locale;
 
 public class Pesquisar extends AppCompatActivity {
 
     private final Calendar dataCalendario = Calendar.getInstance();
-    private boolean isDateSelected;
+    private boolean isDateSelectedIni;
+    private boolean isDateSelectedFin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pesquisar);
 
-        isDateSelected = false;
+        isDateSelectedIni = false;
+        isDateSelectedFin = false;
 
         setContentView(R.layout.activity_cadastro_operacoes); // setContentView precisa estar acima da findViewByID, para não existir problemas ao encontrar o elemento de interface.
         carregarDatePickerIni();
@@ -35,6 +50,45 @@ public class Pesquisar extends AppCompatActivity {
         //pegar aqui a data inical, data final e o radiobotton
         //fazer as validações de campos vazios
         ////enviar para finAppDao
+        RadioGroup radioGroup = findViewById(R.id.radioGroupOperacao);
+        EditText dataInicial = findViewById(R.id.inicialEdit);
+        String dataInicialString = dataInicial.getText().toString();
+        EditText dataFinal = findViewById(R.id.DataFinEdit);
+        String dataFinalString = dataFinal.getText().toString();
+        int radioSelectedID = radioGroup.getCheckedRadioButtonId();
+
+        // radio button
+        if (radioSelectedID == -1) {
+            Toast toast = Toast.makeText(getApplicationContext(), "Selecione um tipo de operação", Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
+        if (!isDateSelectedIni) {
+            Toast toast = Toast.makeText(getApplicationContext(), "Selecione uma data inicial", Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
+        if (!isDateSelectedFin) {
+            Toast toast = Toast.makeText(getApplicationContext(), "Selecione uma data final", Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
+
+        RadioButton tipoOperacaoRadio = (RadioButton) (findViewById(radioSelectedID));
+        String tipoOperacaoString = (String)tipoOperacaoRadio.getText();
+
+        FinAppDAO db = new FinAppDAO(this);
+        List<Financa> lista = db.pesquisar(dataInicialString, dataFinalString, tipoOperacaoString);
+
+        LinearLayout listaLinearLayout = findViewById(R.id.listaPesquisarLayout);
+        for (Financa c: lista){
+            TextView tv = new TextView(this);
+            tv.setText("Classificação:" + c.getClassificacao() + "\nData:" + c.getData() + "\nValor: " + c.getValor());
+            tv.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
+            tv.setHeight(350);
+            tv.setTextSize(20f);
+            listaLinearLayout.addView(tv);
+        }
     }
 
 
@@ -59,7 +113,7 @@ public class Pesquisar extends AppCompatActivity {
                 dataCalendario.set(Calendar.YEAR, year);
                 dataCalendario.set(Calendar.MONTH, month);
                 dataCalendario.set(Calendar.DAY_OF_MONTH, day);
-                isDateSelected = true;
+                isDateSelectedIni = true;
                 updateLabel(dataIniEdit);
             }
         };
@@ -89,7 +143,7 @@ public class Pesquisar extends AppCompatActivity {
                 dataCalendario.set(Calendar.YEAR, year);
                 dataCalendario.set(Calendar.MONTH, month);
                 dataCalendario.set(Calendar.DAY_OF_MONTH, day);
-                isDateSelected = true;
+                isDateSelectedFin = true;
                 updateLabel(dataFinEdit);
             }
         };
