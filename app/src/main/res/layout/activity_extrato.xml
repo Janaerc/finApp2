@@ -4,61 +4,56 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#3F51B5"
+    android:background="#0D214F"
+    android:textAlignment="center"
     tools:context=".Extrato">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/recyclerView">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-
-    </com.google.android.material.appbar.AppBarLayout>
-
     <ScrollView
-        android:id="@+id/scrollViewExtrato"
+        android:id="@+id/scrollViewPesquisa"
         android:layout_width="match_parent"
-        android:layout_height="650dp"
+        android:layout_height="match_parent"
         android:layout_marginBottom="176dp"
+        android:animationCache="false"
+        android:background="#FFC200"
+        android:backgroundTint="#FFFFFF"
+        android:padding="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="16dp">
+        tools:layout_editor_absoluteX="0dp">
 
         <LinearLayout
             android:id="@+id/listaPesquisarLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_margin="10sp"
+            android:orientation="vertical"
+            android:padding="10sp">
 
         </LinearLayout>
     </ScrollView>
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
         android:text="SALDO:"
-        android:textColor="#FFFFFF"
-        android:textSize="40sp"
+        android:textColor="#FFC200"
+        android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/scrollViewExtrato" />
+        app:layout_constraintTop_toBottomOf="@id/scrollViewPesquisa" />
 
     <TextView
         android:id="@+id/saldoText"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="60dp"
         android:text="0.00"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#FFFFFF"
-        android:textSize="60sp"
+        android:textSize="40sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@id/scrollViewExtrato" />
+        app:layout_constraintTop_toBottomOf="@id/scrollViewPesquisa" />
 </androidx.constraintlayout.widget.ConstraintLayout>

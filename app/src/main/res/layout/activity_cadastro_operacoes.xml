@@ -15,7 +15,7 @@
         android:layout_marginTop="51dp"
         android:gravity="right"
         android:text="Operação"
-        android:textColor="#FFFFFF"
+        android:textColor="#FFC200"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -29,6 +29,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="40dp"
+        android:background="@color/white"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -38,18 +39,24 @@
 
     <EditText
         android:id="@+id/editTextValor"
-        android:layout_width="190dp"
+        style="@style/Widget.AppCompat.AutoCompleteTextView"
+        android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="20dp"
         android:ems="10"
-        android:hint="R$ 100,00"
+        android:hint="0,00"
         android:includeFontPadding="false"
         android:inputType="numberDecimal"
-        android:shadowColor="#E45405"
+        android:paddingLeft="20sp"
+        android:paddingRight="20sp"
         android:textAlignment="center"
-        android:textColor="#E45405"
-        android:textColorHighlight="#E45405"
-        android:textColorHint="#E45405"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textColorLink="#FFC200"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -61,11 +68,12 @@
         android:layout_width="190dp"
         android:layout_height="60dp"
         android:layout_marginTop="48dp"
-        android:backgroundTint="#E45405"
+        android:backgroundTint="#FFC200"
         android:onClick="salvarOperacao"
         android:text="Salvar"
-        android:textColorHighlight="#E45405"
-        android:textColorHint="#000000"
+        android:textColor="#0D214F"
+        android:textColorHighlight="#FFC200"
+        android:textColorHint="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="bold"
         app:cornerRadius="5sp"
@@ -95,7 +103,7 @@
         android:layout_marginEnd="112dp"
         android:gravity="right"
         android:text="Data da operação"
-        android:textColor="#FFFFFF"
+        android:textColor="#FFC200"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinnerClassificacoes" />
@@ -106,12 +114,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="120dp"
-        android:layout_marginEnd="76dp"
+        android:drawableRight="@android:drawable/arrow_down_float"
+        android:drawablePadding="10sp"
         android:gravity="right"
         android:text="Classificação"
-        android:textColor="#FFFFFF"
+        android:textColor="#FFC200"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/spinnerClassificacoes"
+        app:drawableTint="#FFC200"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tipoOperacaoRadioGroup" />
 
     <RadioGroup
@@ -130,7 +142,8 @@
             android:onClick="selecionarCredito"
             android:text="Crédito"
 
-            android:textSize="18sp" />
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/debitoRadio"
@@ -139,19 +152,26 @@
             android:onClick="selecionarDebito"
             android:text="Débito"
 
-            android:textSize="18sp" />
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
     </RadioGroup>
 
     <EditText
         android:id="@+id/dataOperacaoEdit"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20sp"
         android:layout_marginTop="31dp"
+        android:layout_marginRight="20sp"
+        android:drawableLeft="@android:drawable/ic_menu_today"
+        android:drawablePadding="10sp"
         android:ems="10"
         android:inputType="date"
-        android:shadowColor="#E45405"
+
+        android:singleLine="false"
         android:textAlignment="center"
-        android:textColor="#E45405"
+        android:textColor="#FFC200"
+        android:textColorHint="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

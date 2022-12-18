@@ -40,7 +40,7 @@ public class Pesquisar extends AppCompatActivity {
         isDateSelectedIni = false;
         isDateSelectedFin = false;
 
-        setContentView(R.layout.activity_cadastro_operacoes); // setContentView precisa estar acima da findViewByID, para não existir problemas ao encontrar o elemento de interface.
+        setContentView(R.layout.activity_pesquisar); // setContentView precisa estar acima da findViewByID, para não existir problemas ao encontrar o elemento de interface.
         carregarDatePickerIni();
         carregarDatePickerFin();
 
@@ -80,7 +80,14 @@ public class Pesquisar extends AppCompatActivity {
         FinAppDAO db = new FinAppDAO(this);
         List<Financa> lista = db.pesquisar(dataInicialString, dataFinalString, tipoOperacaoString);
 
+
+
+
+
         LinearLayout listaLinearLayout = findViewById(R.id.listaPesquisarLayout);
+        listaLinearLayout.removeAllViewsInLayout();
+
+
         for (Financa c: lista){
             TextView tv = new TextView(this);
             tv.setText("Classificação:" + c.getClassificacao() + "\nData:" + c.getData() + "\nValor: " + c.getValor());

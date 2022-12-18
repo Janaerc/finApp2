@@ -11,26 +11,45 @@
     <TextView
         android:id="@+id/extratoText3"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="30sp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:fontFamily="sans-serif"
         android:text="Lista Classificada"
-        android:textSize="30sp"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
-        android:id="@+id/scrollViewExtrato"
+        android:id="@+id/scrollViewPesquisa"
+        style="@android:style/Widget.Holo.ScrollView"
         android:layout_width="match_parent"
         android:layout_height="650dp"
-        app:layout_constraintBottom_toBottomOf="parent">
+        android:background="#FFC200"
+        android:fillViewport="true"
+        android:padding="20sp"
+        android:paddingLeft="30sp"
+        android:paddingTop="10sp"
+        android:paddingRight="10sp"
+        android:scrollbarStyle="outsideOverlay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/extratoText3">
 
         <LinearLayout
             android:id="@+id/listaPesquisarLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:background="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
+            android:orientation="vertical"
+            android:paddingBottom="2sp"
+            android:showDividers="middle|beginning|end"
+            android:textAlignment="center">
 
         </LinearLayout>
     </ScrollView>

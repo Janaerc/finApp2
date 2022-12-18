@@ -65,7 +65,7 @@ public class FinAppDAO{
         List<Financa> list = new ArrayList<>();
 
         if ("Débito".equals(tipoOperacaoString)){
-            query = "SELECT classificacao, data, valor FROM financa WHERE operacacao LIKE 'débito' AND data BETWEEN " + dataInicialString + " AND " + dataFinalString;
+            query = "SELECT classificacao, data, valor FROM financa WHERE operacao LIKE 'Débito' AND data BETWEEN'" + dataInicialString + "' AND '" + dataFinalString + "'";
 
             Cursor c = read.rawQuery(query, null);
             while (c.moveToNext()) {
@@ -75,9 +75,10 @@ public class FinAppDAO{
                 Financa financa = new Financa(null, classificacaoString, dataString,valor);
                 list.add(financa);
             }
+            return list;
         }
         if ("Crédito".equals(tipoOperacaoString)) {
-            query = "SELECT classificacao, data, valor FROM financa WHERE operacacao LIKE 'crédito' AND data BETWEEN " + dataInicialString + " AND " + dataFinalString;
+            query = "SELECT classificacao, data, valor FROM financa WHERE operacao LIKE 'Crédito' AND data BETWEEN'" + dataInicialString + "' AND '" + dataFinalString + "'";
 
             Cursor c = read.rawQuery(query, null);
             while (c.moveToNext()) {
@@ -87,9 +88,10 @@ public class FinAppDAO{
                 Financa financa = new Financa(null, classificacaoString, dataString,valor);
                 list.add(financa);
             }
+            return list;
         }
         else {
-            query = "SELECT classificacao, data, valor FROM financa WHERE data BETWEEN " + dataInicialString + " AND " + dataFinalString;
+            query = "SELECT classificacao, data, valor FROM financa WHERE data BETWEEN'" + dataInicialString + "' AND '" + dataFinalString + "'";
 
             Cursor c = read.rawQuery(query, null);
             while (c.moveToNext()) {
@@ -107,7 +109,7 @@ public class FinAppDAO{
         SQLiteDatabase db = this.read;
         String query;
         List<Financa> list = new ArrayList<>();
-        query = "SELECT classificacao, data, valor FROM financa limit 15";
+        query = "SELECT classificacao, data, valor FROM financa ORDER BY data limit 15";
 
         Cursor c = read.rawQuery(query, null);
         while (c.moveToNext()) {
@@ -136,7 +138,7 @@ public class FinAppDAO{
         }
         Log.i("INFO", "rafa " +  debito);
         Log.i("INFO", "rafa " + credito);
-        return (debito - credito);
+        return (credito - debito);
     }
 
 

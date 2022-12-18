@@ -13,9 +13,12 @@
         android:layout_width="190dp"
         android:layout_height="60dp"
         android:layout_marginTop="24dp"
-        android:background="#FFC200"
-        android:onClick="executaPesquisa"
+        android:backgroundTint="#FFC200"
+        android:hapticFeedbackEnabled="false"
+        android:onClick="pesquisar"
         android:text="Pesquisar"
+        android:textColor="#0D214F"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroupOperacao" />
@@ -128,13 +131,16 @@
     </RadioGroup>
 
     <ScrollView
-        android:id="@+id/scrollViewExtrato"
+        android:id="@+id/scrollViewPesquisa"
         android:layout_width="match_parent"
         android:layout_height="200sp"
         android:layout_marginTop="16dp"
+        android:background="#FFFFFF"
+        android:padding="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonPesquisa"
-        tools:layout_editor_absoluteX="0dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonPesquisa">
 
         <LinearLayout
             android:id="@+id/listaPesquisarLayout"
