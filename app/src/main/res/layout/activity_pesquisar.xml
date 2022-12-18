@@ -4,31 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E45405"
-    android:backgroundTint="#E45405"
+    android:background="#0D214F"
+    android:backgroundTint="#0D214F"
     tools:context=".Pesquisar">
-
-    <Spinner
-        android:id="@+id/spinnerOperacaoPesquisar"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="308dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buttonPesquisa"
         android:layout_width="190dp"
         android:layout_height="60dp"
-        android:layout_marginTop="62dp"
+        android:layout_marginTop="24dp"
         android:background="#E45405"
         android:backgroundTint="#E45405"
         android:onClick="executaPesquisa"
         android:text="Pesquisar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerOperacaoPesquisar" />
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
     <TextView
         android:id="@+id/textView"
@@ -36,6 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
         android:text="Data de inicio"
+        android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/inicialEdit"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,6 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="17dp"
         android:text="Data final"
+        android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/DataFinEdit"
         app:layout_constraintEnd_toEndOf="parent"
@@ -60,6 +53,7 @@
         android:layout_marginBottom="20dp"
         android:ems="10"
         android:inputType="date"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/textView3"
         app:layout_constraintStart_toStartOf="@+id/DataFinEdit" />
 
@@ -67,11 +61,46 @@
         android:id="@+id/DataFinEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="39dp"
-        android:layout_marginBottom="59dp"
         android:ems="10"
         android:inputType="date"
-        app:layout_constraintBottom_toTopOf="@+id/spinnerOperacaoPesquisar"
-        app:layout_constraintStart_toStartOf="@+id/spinnerOperacaoPesquisar" />
+        android:textColor="#FFFFFF"
+        tools:layout_editor_absoluteX="94dp"
+        tools:layout_editor_absoluteY="204dp" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@+id/DataFinEdit"
+        tools:layout_editor_absoluteX="158dp">
+
+        <RadioButton
+            android:id="@+id/radioButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60sp"
+            android:text="Débito"
+            android:textColor="#FFFFFF" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60sp"
+            android:text="Crédito"
+            android:textColor="#FFFFFF" />
+
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60sp"
+            android:text="Ambos"
+            android:textColor="#FFFFFF" />
+    </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
